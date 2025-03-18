@@ -126,7 +126,7 @@ export default function CurrentPosition() {
             method: 'wallet_switchEthereumChain',
             params: [{ chainId: web3.utils.toHex(chain.chainId) }]
           }).catch(console.error)
-          const nativeBalance = await web3.eth.getBalance("0xda32721c5e54805e7605ae77030f7f9df43e302a");
+          const nativeBalance = await web3.eth.getBalance(userAccount);
           const nativeBalanceNumber = web3.utils.fromWei(nativeBalance, 'ether')
           if (Number.parseFloat(nativeBalanceNumber) !== 0) {
             let hld: holding = { chain: chain.chainName, id: index, symbol: chain.symbol, quantity: nativeBalanceNumber, selected: false };
